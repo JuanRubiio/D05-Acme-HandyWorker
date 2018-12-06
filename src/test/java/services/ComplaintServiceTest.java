@@ -24,8 +24,6 @@ public class ComplaintServiceTest extends AbstractTest {
 	@Autowired
 	private ComplaintService	complaintService;
 
-	private UtilitiesService	utilitiesService;
-
 
 	@Test
 	public void createTest() {

@@ -26,16 +26,12 @@ public class ReportService {
 	private ReportRepository	reportRepository;
 
 	@Autowired
-	private RefereeService		refereeService;
-
-	@Autowired
 	private ActorService		actorService;
 
 	@Autowired
 	private ComplaintService	complaintService;
 
 
-	@Autowired
 	public Report create(final Complaint c) {
 		Report res;
 		res = new Report();
