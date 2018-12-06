@@ -7,14 +7,33 @@
  * TDG Licence, a copy of which you may download from 
  * http://www.tdg-seville.info/License.html
  --%>
-
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
+<%
+	String connectionURL = "jdbc:mysql://localhost:3306/acme-handyworker";
+	Connection connection = null;
+	Class.forName("com.mysql.jdbc.Driver").newInstance();
+	connection = DriverManager.getConnection(connectionURL, "acme-manager", "");
+	Statement st = connection.createStatement();
+	ResultSet rs = null;
+	String QueryString = "SELECT * FROM configuration ";
+	rs = st.executeQuery(QueryString);
+	while (rs.next()) {
+		;
+		String banner = (String) rs.getObject(3);
+		application.setAttribute("banner", banner);
+	}
+%>
+
 <div>
-	<a href="#"><img class = "banner" src="images/logo.jpg" alt="Acme Handy Worker Co., Inc." /></a>
+	<a href="#"><img src="${banner}"  width="500" height="200"/></a>
 </div>
 
 <div>
