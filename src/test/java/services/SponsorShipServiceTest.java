@@ -45,7 +45,7 @@ public class SponsorShipServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testCrateSponsorShip() {
+	public void testCreateSponsorShip() {
 
 		super.authenticate("sponsor1");
 		Sponsorship sponsorship, saved;
@@ -55,7 +55,8 @@ public class SponsorShipServiceTest extends AbstractTest {
 		final CreditCard creditCard = this.ccService.findOne(1372);
 		sponsorship.setCreditCard(creditCard);
 		saved = this.sponsorshipService.save(sponsorship);
-		Assert.notNull(saved);
+		sponsorships = this.sponsorshipService.findAll();
+		Assert.isTrue(sponsorships.contains(saved));
 
 	}
 

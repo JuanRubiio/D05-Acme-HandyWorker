@@ -73,6 +73,8 @@ public class ConfigurationService {
 		return result;
 	}
 
+	//MANAGE LIST OF NEGATIVE AND POSITIVE WORDS SERVICES
+
 	public List<String> getPositiveWords() {
 		final String positiveWords;
 		Configuration configlate = new Configuration();
@@ -81,7 +83,7 @@ public class ConfigurationService {
 			if (configurations.size() == 1)
 				configlate = t;
 
-		positiveWords = configlate.getPositiveSpanishWords() + configlate.getPositiveEnglishWords();
+		positiveWords = configlate.getPositiveSpanishWords() + ";" + configlate.getPositiveEnglishWords();
 
 		final List<String> list = Arrays.asList(positiveWords.split(";"));
 
@@ -90,17 +92,130 @@ public class ConfigurationService {
 
 	public List<String> getNegativeWords() {
 		final String negativeWords;
+
 		Configuration configlate = new Configuration();
 		final Collection<Configuration> configurations = this.configurationRepository.findAll();
 		for (final Configuration t : configurations)
 			if (configurations.size() == 1)
 				configlate = t;
 
-		negativeWords = configlate.getNegativeSpanishWords() + configlate.getNegativeEnglishWords();
+		negativeWords = configlate.getNegativeSpanishWords() + ";" + configlate.getNegativeEnglishWords();
 
 		final List<String> list = Arrays.asList(negativeWords.split(";"));
 
 		return list;
 	}
 
+	public List<String> CreatePositiveWords() {
+
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		Assert.isNull(configlate.getPositiveEnglishWords());
+		Assert.isNull(configlate.getPositiveSpanishWords());
+
+		final String spanishWords = "good;fantastic;excelent;great;amazing;terrific;beautiful";
+		final String englishWords = "bueno;fantastico;excelente;increible;estupendo;hermoso";
+
+		configlate.setPositiveSpanishWords(spanishWords);
+
+		configlate.setPositiveEnglishWords(englishWords);
+
+		final String positiveWords = configlate.getPositiveSpanishWords() + ";" + configlate.getPositiveEnglishWords();
+
+		final List<String> list = Arrays.asList(positiveWords.split(";"));
+
+		return list;
+	}
+
+	public List<String> CreateNegativeWords() {
+
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		Assert.isNull(configlate.getNegativeEnglishWords());
+		Assert.isNull(configlate.getNegativeSpanishWords());
+
+		final String englishWords = "not;bad;horrible;average;disaster";
+		final String spanishWords = "no;malo;horrible;mediocre;desastre";
+
+		configlate.setNegativeEnglishWords(englishWords);
+		configlate.setNegativeSpanishWords(spanishWords);
+
+		final String NegativeWords = configlate.getNegativeSpanishWords() + ";" + configlate.getNegativeEnglishWords();
+
+		final List<String> list = Arrays.asList(NegativeWords.split(";"));
+
+		return list;
+	}
+
+	public List<String> UpdatePositiveWords(final String spanishWord, final String englishWord) {
+
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		final String positiveEnglish = configlate.getPositiveSpanishWords();
+		final String positiveSpanish = configlate.getPositiveEnglishWords();
+
+		positiveEnglish.concat(";" + englishWord);
+		positiveSpanish.concat(";" + spanishWord);
+
+		final String positiveWords = configlate.getPositiveSpanishWords() + ";" + configlate.getPositiveEnglishWords();
+
+		final List<String> list = Arrays.asList(positiveWords.split(";"));
+
+		return list;
+	}
+
+	public List<String> UpdateNegativeWords(final String spanishWord, final String englishWord) {
+
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		final String positiveEnglish = configlate.getNegativeSpanishWords();
+		final String positiveSpanish = configlate.getNegativeEnglishWords();
+
+		positiveEnglish.concat(";" + englishWord);
+		positiveSpanish.concat(";" + spanishWord);
+
+		final String positiveWords = configlate.getNegativeSpanishWords() + ";" + configlate.getNegativeEnglishWords();
+
+		final List<String> list = Arrays.asList(positiveWords.split(";"));
+
+		return list;
+	}
+
+	public void deletePositiveWords() {
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		configlate.setPositiveEnglishWords(null);
+		configlate.setPositiveSpanishWords(null);
+	}
+
+	public void deleteNegativeWords() {
+		Configuration configlate = new Configuration();
+		final Collection<Configuration> configurations = this.configurationRepository.findAll();
+		for (final Configuration t : configurations)
+			if (configurations.size() == 1)
+				configlate = t;
+
+		configlate.setNegativeEnglishWords(null);
+		configlate.setNegativeSpanishWords(null);
+	}
 }

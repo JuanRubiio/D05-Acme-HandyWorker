@@ -27,7 +27,7 @@ public class EndorserServiceTest extends AbstractTest {
 
 
 	@Test
-	public void testFindAllWarranty() {
+	public void testFindAllEndorser() {
 
 		final Collection<Endorser> todos = this.endorserService.findAll();
 		Assert.isTrue(todos.size() == 5);
@@ -39,6 +39,27 @@ public class EndorserServiceTest extends AbstractTest {
 
 		final Endorser recuperado = this.endorserService.findOne(1308);
 		Assert.isTrue(recuperado.getName().equals("David"));
+	}
+
+	@Test
+	public void testgetNumberPositiveWords() {
+
+		final Integer p = this.endorserService.getNumberOfPositiveWords(1308);
+		Assert.isTrue(p == 4);
+	}
+
+	@Test
+	public void testgetNumberNegativeWords() {
+
+		final Integer n = this.endorserService.getNumberOfNegativeWords(1308);
+		Assert.isTrue(n == 2);
+	}
+
+	@Test
+	public void testCalculateScore() {
+
+		final Double score = this.endorserService.calculateScore(1308);
+		Assert.isTrue(score == 2.0);
 	}
 
 }

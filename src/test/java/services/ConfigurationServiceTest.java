@@ -52,9 +52,16 @@ public class ConfigurationServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testSpanishWords() {
+	public void testGetPositiveWords() {
 
 		final List<String> res = this.configurationService.getPositiveWords();
-		Assert.isTrue(!res.isEmpty());
+		Assert.isTrue(res.size() == 14);
+	}
+
+	@Test
+	public void testGetNegativeWords() {
+
+		final List<String> res = this.configurationService.getNegativeWords();
+		Assert.isTrue(res.size() == 10);
 	}
 }

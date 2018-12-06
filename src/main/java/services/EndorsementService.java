@@ -110,14 +110,22 @@ public class EndorsementService {
 		this.endorsementRepository.delete(Endorsement);
 	}
 
-	public Collection<Endorsement> findByWriteFrom(final int endorserID) {
+	public Collection<String> findByWriteFromComments(final int endorserID) {
 
-		return this.endorsementRepository.findByWriteFrom(endorserID);
+		final Collection<String> res = this.endorsementRepository.findByWriteFromComments(endorserID);
+
+		Assert.notNull(res);
+
+		return res;
 	}
 
-	public Collection<Endorsement> findByWriteTo(final int endorserID) {
+	public Collection<String> findByWriteToComments(final int endorserID) {
 
-		return this.endorsementRepository.findByWriteTo(endorserID);
+		final Collection<String> res = this.endorsementRepository.findByWriteToComments(endorserID);
+
+		Assert.notNull(res);
+
+		return res;
 	}
 
 }
