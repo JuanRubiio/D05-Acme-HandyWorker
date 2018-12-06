@@ -25,6 +25,7 @@ public class UtilitiesServiceTest extends AbstractTest {
 	@Test
 	public void testGenerateTicker() {
 		final String t = this.utilitiesService.generateTicker();
+		System.out.print(t);
 
 	}
 

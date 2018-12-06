@@ -31,7 +31,6 @@ public class NoteService {
 	private ActorService	actorService;
 
 
-	@Autowired
 	public Note create(final Report report) {
 		Note res;
 		res = new Note();

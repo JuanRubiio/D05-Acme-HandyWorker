@@ -43,10 +43,13 @@ public class UtilitiesService {
 		final String letra3 = a[rdn.nextInt(a.length - 1)];
 		final String letra4 = a[rdn.nextInt(a.length - 1)];
 		final String division = "-";
-		final String dia = Integer.toString(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+		String dia = Integer.toString(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 		String mes = Integer.toString(Calendar.getInstance().get(Calendar.MONTH) + 1);
 		if (mes.length() == 1)
 			mes = "0" + mes;
+		if (dia.length() == 1)
+			dia = "0" + dia;
+
 		final String annio = Integer.toString(Calendar.getInstance().get(Calendar.YEAR)).substring(2);
 
 		res = annio + mes + dia + division + letra1 + letra2 + letra3 + letra4;
@@ -60,10 +63,12 @@ public class UtilitiesService {
 			final String letra32 = a[rdn.nextInt(a.length - 1)];
 			final String letra42 = a[rdn.nextInt(a.length - 1)];
 			final String division2 = "-";
-			final String dia2 = Integer.toString(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+			String dia2 = Integer.toString(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 			String mes2 = Integer.toString(Calendar.getInstance().get(Calendar.MONTH) + 1);
 			if (mes2.length() == 1)
 				mes2 = "0" + mes2;
+			if (dia2.length() == 1)
+				dia2 = "0" + dia2;
 			final String annio2 = Integer.toString(Calendar.getInstance().get(Calendar.YEAR)).substring(2);
 
 			res = annio2 + mes2 + dia2 + division2 + letra12 + letra22 + letra32 + letra42;
