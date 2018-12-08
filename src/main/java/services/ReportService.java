@@ -4,6 +4,7 @@ package services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -15,6 +16,7 @@ import repositories.ReportRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Complaint;
+import domain.Note;
 import domain.Referee;
 import domain.Report;
 
@@ -32,7 +34,7 @@ public class ReportService {
 	private ComplaintService	complaintService;
 
 
-	public Report create(final Complaint c) {
+	public Report create(final Integer complaintId) {
 		Report res;
 		res = new Report();
 		final Actor actor = this.actorService.getPrincipal();
@@ -46,7 +48,10 @@ public class ReportService {
 
 		res.setReferee((Referee) actor);
 		res.setMoment(new Date());
+		final List<Note> notes = new ArrayList<Note>();
+		final Complaint c = this.complaintService.findOne(complaintId);
 		res.setComplaint(this.complaintService.findOne(c.getId()));
+		res.setCollectionNotes(notes);
 		res.setDraft(false);
 		return res;
 	}
