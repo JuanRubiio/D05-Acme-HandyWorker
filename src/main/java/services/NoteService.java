@@ -15,7 +15,6 @@ import repositories.NoteRepository;
 import security.Authority;
 import domain.Actor;
 import domain.Note;
-import domain.Report;
 
 @Service
 @Transactional
@@ -31,11 +30,11 @@ public class NoteService {
 	private ActorService	actorService;
 
 
-	public Note create(final Report report) {
+	public Note create(final Integer reportId) {
 		Note res;
 		res = new Note();
 		res.setMoment(new Date());
-		res.setReport(this.reportService.findOne(report.getId()));
+		res.setReport(this.reportService.findOne(reportId));
 		final Actor actor = this.actorService.getPrincipal();
 		final Collection<Authority> authorities = actor.getUserAccount().getAuthorities();
 		final ArrayList<String> listAuth = new ArrayList<String>();
