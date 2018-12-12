@@ -16,7 +16,7 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<form:form action="folder/authenticate/edit.do" modelAttribute="folder">
+<form:form action="messagebox/authenticate/edit.do" modelAttribute="messageBox">
 	<form:hidden path="id"/>
 	<form:hidden path="version" />
 	<form:hidden path="actor" />
@@ -24,18 +24,18 @@
 	<form:hidden path="system" />
 	
 	<form:label path="name" >
-		<spring:message code="folder.name" />
+		<spring:message code="messagebox.name" />
 	</form:label>
 	<form:input path="name" />
 	<form:errors cssClass="error" path="name"/>
 	<br>
 	
-	<input type="submit" name="save" value="<spring:message code="folder.save" />" />
+	<input type="submit" name="save" value="<spring:message code="messagebox.save" />" />
 	
-	<jstl:if test="${!folder.system && folder.id != 0}">
-		<input type="submit" name="delete" value="<spring:message code="folder.delete"/>" onclick="return confirm('<spring:message code="folder.confirm.delete" />')"/>
+	<jstl:if test="${!messageBox.system && messageBox.id != 0}">
+		<input type="submit" name="delete" value="<spring:message code="messagebox.delete"/>" onclick="return confirm('<spring:message code="messagebox.confirm.delete" />')"/>
 	</jstl:if>
 	
-	<input type="button" name="cancel" value="<spring:message code="folder.cancel" />" onclick="javascript: window.history.back()" />
+	<input type="button" name="cancel" value="<spring:message code="messagebox.cancel" />" onclick="javascript: window.history.back()" />
 	
 </form:form>

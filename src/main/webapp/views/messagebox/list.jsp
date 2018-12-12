@@ -16,29 +16,29 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<display:table name="folders" id="row" pagesize="5" requestURI="${requestUri}" class="displaytag">
+<display:table name="message boxes" id="row" pagesize="5" requestURI="${requestUri}" class="displaytag">
 	
-	<spring:message code="folder.name" var="name" />
+	<spring:message code="messagebox.name" var="name" />
 	<display:column title="${name}" property="name" />
 	
-	<spring:message code="folder.list" var="view" />
+	<spring:message code="messagebox.list" var="view" />
 	<display:column title="${view}">
-			<input type="button" value="<spring:message code="folder.view" />" 
-					onclick="javascript: window.location.assign('message/authenticate/list.do?folderId=${row.id}')" />
+			<input type="button" value="<spring:message code="messagebox.view" />" 
+					onclick="javascript: window.location.assign('message/authenticate/list.do?messageBoxId=${row.id}')" />
 	</display:column>
 	
-	<spring:message code="folder.edit" var="edit" />
+	<spring:message code="messagebox.edit" var="edit" />
 	<display:column title="${edit}">
 		<jstl:if test="${!row.system}">
-			<input type="button" value="<spring:message code="folder.edit" />" 
-					onclick="javascript: window.location.assign('folder/authenticate/edit.do?folderId=${row.id}')" />
+			<input type="button" value="<spring:message code="messagebox.edit" />" 
+					onclick="javascript: window.location.assign('messagebox/authenticate/edit.do?messageBoxId=${row.id}')" />
 		</jstl:if>				
 	</display:column>	
 	
 </display:table>
 
-	<input type="button" name="create" value="<spring:message code="folder.create" />"
-	 onclick="javascript: window.location.assign('folder/authenticate/create.do')" />
+	<input type="button" name="create" value="<spring:message code="messagebox.create" />"
+	 onclick="javascript: window.location.assign('messagebox/authenticate/create.do')" />
 	 
-	<input type="button" name="createM" value="<spring:message code="folder.message.create" />"
+	<input type="button" name="createM" value="<spring:message code="messagebox.message.create" />"
 	 onclick="javascript: window.location.assign('message/authenticate/create.do')" />
