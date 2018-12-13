@@ -81,11 +81,11 @@ public class Curriculum extends DomainEntity {
 	@Valid
 	@NotNull
 	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<EndorserRecord> getEndoserRecords() {
+	public Collection<EndorserRecord> getEndorserRecords() {
 		return this.endoserRecords;
 	}
 
-	public void setEndoserRecords(final Collection<EndorserRecord> endRecords) {
+	public void setEndorserRecords(final Collection<EndorserRecord> endRecords) {
 		this.endoserRecords = endRecords;
 	}
 
