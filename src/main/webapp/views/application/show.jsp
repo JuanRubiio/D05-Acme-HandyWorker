@@ -36,21 +36,29 @@
 		<br />
 
 		<%-- IF status.Accepted --%>
-		<form:label path="status">
-			<spring:message code="application.status" />: ${application.status}
-		</form:label>
-		<br />
-		<form:label path="creditCard">
-			<spring:message code="application.creditCard" />: ${application.creditCard}
-		</form:label>
-		<br />
-		<%-- choose para workplan --%>
+		<jstl:if test="${application.status=='ACCEPTED'}">
+			<form:label path="status">
+				<spring:message code="application.status" />: ${application.status}
+			</form:label>
+			<br />
+			<form:label path="creditCard">
+				<spring:message code="application.creditCard" />: ${application.creditCard}
+			</form:label>
+			<br />
 		
+		<%-- workplan --%>
+		<form:select path="phase">
+			<form:options
+				items="${phase}" 
+				itemLabel="phase"
+				itemValue="phase"/>
+		</form:select>	
 		<%-- FIN --%>
 		<br />
 		<a href="phase/show.do?phaseId=${phase.id}">show</a>	
 		<br />
 		<a href="phase/new.do">Create new phase</a>
+		</jstl:if>
 		<%-- ENDIF --%>
 	
 		<form:label path="handyWorkerComments">

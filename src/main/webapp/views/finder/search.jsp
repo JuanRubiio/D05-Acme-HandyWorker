@@ -68,18 +68,26 @@
 		<form:errors ccClass="error" path="LastDate"/>
 		<br />
 	
-		<form:select id="warrantys" path="warranty">
-			<form:option value="0" label="Yes"></form:option>
-			<form:option value="1" label="No"></form:option>
-		</form:select>
+		<%-- warranty --%>
+		<form:select path="warranty">
+			<form:options
+				items="${warranty}" 
+				itemLabel="warranty"
+				itemValue="warranty"/>
+		</form:select>	
 	
-		<%-- Falta hacer el seleccionar categoria --%>	
+		<%-- category --%>
+		<form:select path="category">
+			<form:options
+				items="${category}" 
+				itemLabel="category"
+				itemValue="category"/>
+		</form:select>	
 	
 		<input type="submit" name="save" value="<spring:message code="finder.save"/>"/>
 		<input type="button" name="cancel" value="<spring:message code="finder.cancel"/>"
 			onclick="javascript: relativeRedir('handyWorker/show.do');"/>
 		
-	
 	</form:form>
 
 </security:authorize>

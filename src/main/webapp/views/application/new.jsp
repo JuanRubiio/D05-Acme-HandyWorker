@@ -43,9 +43,7 @@
 		<form:errors ccClass="error" path="handyWorkerComments"/>
 		<br />
 		
-		<%-- Poner: Selecting fix-up task with ticker: XXXXXX-XXXX --%>
-		Selecting fix-up task with ticker: ${application.fixUpTask.ticker}
-		<br/>
+		
 		
 		<input type="submit" name="send" value="<spring:message code="application.save"/>"/>
 		<input type="button" name="cancel" value="<spring:message code="application.cancel"/>"
