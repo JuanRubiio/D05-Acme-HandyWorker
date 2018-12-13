@@ -12,6 +12,21 @@
 <display:table name="fixUpTask" requestURI="fixUpTask/customer/listcustomer.do"
 	class="displaytag">
 	<display:column>
+		<security:authorize access="hasRole('CUSTOMER')">
+			<a href="fixUpTask/customer/show.do?fixUpTaskId=${fixUpTask.id}">show</a>
+		</security:authorize>
+	</display:column>
+	<display:column>
+			<security:authorize access="hasRole('CUSTOMER')">
+				<a href="fixUpTask/customer/edit.do?fixUpTaskId=${fixUpTask.id}">edit</a>
+			</security:authorize>
+	</display:column>
+	<display:column>
+			<security:authorize access="hasRole('CUSTOMER')">
+				<a href="fixUpTask/customer/edit.do[POST:delete]">delete</a>
+			</security:authorize>
+	</display:column>
+	<display:column>
 		<a href="fixUpTask/customer/show.do?fixUpTaskId=${fixUpTask.id}">show</a>
 	</display:column>
 	<display:column>

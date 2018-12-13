@@ -16,15 +16,23 @@
 	class="displaytag">
 	<display:column>
 		<jstl:if test="${!report.draft }">
-		<security:authorize access="hasRole('REFEREE'||'CUSTOMER'||'HANDYWORKER')">
-			<a href="report/referee/show.do?reportId=${report.id}">show</a>
-		</security:authorize>
+			<security:authorize
+				access="hasRole('REFEREE'||'CUSTOMER'||'HANDYWORKER')">
+				<a href="report/referee/show.do?reportId=${report.id}">show</a>
+			</security:authorize>
 		</jstl:if>
 	</display:column>
 	<display:column>
 		<jstl:if test="${report.draft }">
 			<security:authorize access="hasRole('REFEREE')">
 				<a href="report/referee/edit.do?reportId=${report.id}">edit</a>
+			</security:authorize>
+		</jstl:if>
+	</display:column>
+	<display:column>
+		<jstl:if test="${report.draft }">
+			<security:authorize access="hasRole('REFEREE')">
+				<a href="report/referee/edit.do[POST.delete]">delete</a>
 			</security:authorize>
 		</jstl:if>
 	</display:column>

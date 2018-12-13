@@ -15,10 +15,11 @@
 <display:table name="fixUpTask"
 	requestURI="fixUpTask/handyWorker/listhw.do" class="displaytag">
 	<display:column>
-		<a href="fixUpTask/handyWorker/show.do?fixUpTaskId=${fixUpTask.id}">show</a>
+		<a
+			href="customer/handyWorker/show.do?customerId=${fixUpTask.customer}">Customer</a>
 	</display:column>
 	<display:column>
-		<a href="customer/handyWorker/show.do?customerId=${fixUpTask.customer}">Customer</a>
+		<a href="fixUpTask/handyWorker/show.do?fixUpTaskId=${fixUpTask.id}">show</a>
 	</display:column>
 	<display:column property="id" titleKey="fixUpTask.id" />
 	<display:column property="ticker" titleKey="fixUpTask.ticker" />

@@ -12,8 +12,8 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<display:table name="warranty" requestURI="warranty/administrator/list.do"
-	class="displaytag">
+<display:table name="warranty"
+	requestURI="warranty/administrator/list.do" class="displaytag">
 	<display:column>
 		<security:authorize access="hasRole('ADMIN')">
 			<a href="warranty/administrator/show.do?warrantyId=${warranty.id}">show</a>
@@ -26,7 +26,7 @@
 			</security:authorize>
 		</jstl:if>
 	</display:column>
-		<display:column>
+	<display:column>
 		<jstl:if test="${warranty.draft }">
 			<security:authorize access="hasRole('ADMIN')">
 				<a href="warranty/administrator/edit.do?[POST:delete]">delete</a>
