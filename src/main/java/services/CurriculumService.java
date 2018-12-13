@@ -93,7 +93,7 @@ public class CurriculumService {
 
 		Assert.notNull(curriculum);
 		Assert.notNull(curriculum.getEducationalRecords());
-		Assert.notNull(curriculum.getEndoserRecords());
+		Assert.notNull(curriculum.getEndorserRecords());
 		Assert.notNull(curriculum.getMiscellaneousRecords());
 		Assert.notNull(curriculum.getProfessionalRecords());
 		Assert.notNull(curriculum.getPersonalRecord());
