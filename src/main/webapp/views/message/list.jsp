@@ -43,14 +43,6 @@
 					onclick="javascript: window.location.assign('message/authenticate/display.do?messageId=${row.id}')" />
 	</display:column>
 	
-	<jstl:if test="${!folder.name.equals('Spambox') && !folder.name.equals('Trashbox')}">
-	<spring:message code="message.move" var="move" />
-	<display:column title="${move}">
-			<input type="button" value="<spring:message code="message.spam" />" 
-					onclick="javascript: window.location.assign('message/authenticate/spam.do?messageId=${row.id}')" />
-	</display:column>
-	</jstl:if>
-	
 	<spring:message code="message.delete" var="delete" />
 	<display:column title="${delete}">
 		<a href="message/authenticate/delete.do?messageId=${row.id}">
