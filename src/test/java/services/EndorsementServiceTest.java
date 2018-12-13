@@ -32,7 +32,31 @@ public class EndorsementServiceTest extends AbstractTest {
 
 
 	@Test
-	public void testCrateEndorsement() {
+	public void testFindByWriteFromComments() {
+
+		final Collection<String> coleccionComentarios;
+		coleccionComentarios = this.endorsementService.findByWriteFromComments(1338);
+		Assert.isTrue(coleccionComentarios.size() == 1);
+	}
+
+	@Test
+	public void testFindByWriteToComments() {
+
+		final Collection<String> coleccionComentarios;
+		coleccionComentarios = this.endorsementService.findByWriteToComments(1308);
+		Assert.isTrue(coleccionComentarios.size() == 3);
+	}
+
+	@Test
+	public void testFindOneEndorsement() {
+
+		final Endorsement endorsement;
+		endorsement = this.endorsementService.findOne(1417);
+		Assert.isTrue(endorsement.getComments().equals("Poco eficiente"));
+	}
+
+	@Test
+	public void testCreateEndorsement() {
 
 		super.authenticate("customer1");
 		Endorsement endorsement, saved;
@@ -43,6 +67,32 @@ public class EndorsementServiceTest extends AbstractTest {
 		saved = this.endorsementService.save(endorsement);
 		endorsements = this.endorsementService.findAll();
 		Assert.isTrue(endorsements.contains(saved));
+		super.authenticate(null);
+	}
+
+	@Test
+	public void testUpdateEndorsement() {
+
+		super.authenticate("handyWorker1");
+		Endorsement endorsement, saved, recuperado;
+		endorsement = this.endorsementService.findOne(1416);
+		endorsement.setComments("la vida es bella");
+		saved = this.endorsementService.save(endorsement);
+		recuperado = this.endorsementService.findOne(saved.getId());
+		Assert.isTrue(recuperado.getComments().equals("la vida es bella"));
+		super.authenticate(null);
+	}
+
+	@Test
+	public void testDeleteEndorsement() {
+
+		super.authenticate("handyWorker1");
+		final Endorsement endorsement;
+		Collection<Endorsement> todos;
+		endorsement = this.endorsementService.findOne(1417);
+		this.endorsementService.delete(endorsement);
+		todos = this.endorsementService.findAll();
+		Assert.isTrue(!todos.contains(endorsement));
 		super.authenticate(null);
 	}
 

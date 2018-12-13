@@ -47,7 +47,7 @@ public class WarrantyServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void testCrateWarranty() {
+	public void testCreateWarranty() {
 
 		super.authenticate("administrator1");
 		Warranty warranty, saved;
