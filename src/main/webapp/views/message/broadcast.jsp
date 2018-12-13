@@ -40,7 +40,7 @@
 	<form:errors cssClass="error" path="priority"/>
 	<br>
 	
-	<acme:textbox code="message.subject" path="tags" />
+	<acme:textbox code="message.tags" path="tags" />
 	
 	<acme:submit name="save" code="message.save" />
 	
