@@ -20,7 +20,7 @@
 	<form:label path="description">
 		<spring:message code="fixUpTask.description" />:
 	</form:label>
-	<form:input path="description" placeholder="${fixUpTask.description} }" />
+	<form:input path="description" placeholder="${fixUpTask.description}" />
 	<form:errors cssClass="error" path="description" />
 	<br />
 

@@ -17,36 +17,36 @@
 	
 
 	<form:label path="ticker">
-		<spring:message code="fixUpTask.ticker: ${fixUpTask.ticker}" />:
+		<spring:message code="fixUpTask.ticker" />: ${fixUpTask.ticker}
 	</form:label>
 
 	<form:label path="moment">
-		<spring:message code="fixUpTask.moment: ${fixUpTask.moment}" />:
+		<spring:message code="fixUpTask.moment" />: ${fixUpTask.moment}
 	</form:label>
 	
 	<form:label path="description">
-		<spring:message code="fixUpTask.description: ${fixUpTask.description}" />:
+		<spring:message code="fixUpTask.description" />: ${fixUpTask.description}
 	</form:label>
 
 
 	<form:label path="address">
-		<spring:message code="fixUpTask.address: ${fixUpTask.address}" />:
+		<spring:message code="fixUpTask.address" />: ${fixUpTask.address}
 	</form:label>
 	
 	<form:label path="minPrice">
-		<spring:message code="fixUpTask.minPrice: ${fixUpTask.minPrice}" />:
+		<spring:message code="fixUpTask.minPrice" />: ${fixUpTask.minPrice}
 	</form:label>
 	
 	<form:label path="maxPrice">
-		<spring:message code="fixUpTask.maxPrice: ${fixUpTask.maxPrice}" />:
+		<spring:message code="fixUpTask.maxPrice" />: ${fixUpTask.maxPrice}
 	</form:label>
 	
 	<form:label path="minDate">
-		<spring:message code="fixUpTask.minDate: ${fixUpTask.minDate}" />:
+		<spring:message code="fixUpTask.minDate" />: ${fixUpTask.minDate}
 	</form:label>
 	
 	<form:label path="maxDate">
-		<spring:message code="fixUpTask.maxDate: ${fixUpTask.maxDate}" />:
+		<spring:message code="fixUpTask.maxDate" />: ${fixUpTask.maxDate}
 	</form:label>
 
 

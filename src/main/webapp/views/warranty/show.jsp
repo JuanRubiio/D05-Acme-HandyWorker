@@ -17,15 +17,15 @@
 	
 
 	<form:label path="title">
-		<spring:message code="warranty.title: ${warranty.title}" />:
+		<spring:message code="warranty.title" />: ${warranty.title}
 	</form:label>
 
 	<form:label path="terms">
-		<spring:message code="warranty.terms: ${warranty.terms}" />:
+		<spring:message code="warranty.terms" />: ${warranty.terms}
 	</form:label>
 	
 	<form:label path="laws">
-		<spring:message code="warranty.laws: ${warranty.laws}" />:
+		<spring:message code="warranty.laws" />: ${warranty.laws}
 	</form:label>
 
 

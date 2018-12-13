@@ -20,11 +20,11 @@
 	<form:hidden path="moment" />
 
 	<form:label path="description">
-		<spring:message code="report.description: ${report.description}" />:
+		<spring:message code="report.description" />: ${report.description}
 	</form:label>
 
 	<form:label path="attachements">
-		<spring:message code="report.attachements: ${report.attachments}" />:
+		<spring:message code="report.attachements" />: ${report.attachments}
 	</form:label>
 
 
