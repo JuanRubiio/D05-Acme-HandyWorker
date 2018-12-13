@@ -60,10 +60,11 @@
 
 <acme:textbox path="professionalRecord.companyName" code="curriculum.companyName"/>
 <acme:textbox path="professionalRecord.role" code="curriculum.role"/>
-<acme:textbox path="professionalRecord.end" code="curriculum.end"/>
-<acme:textbox path="professionalRecord.begin" code="curriculum.begin"/>
 <acme:textbox path="professionalRecord.attachment" code="curriculum.attachment"/>
 <acme:textbox path="professionalRecord.comments" code="curriculum.comments"/>
+<acme:textbox path="professionalRecord.begin" code="curriculum.begin"/>
+<acme:textbox path="professionalRecord.end" code="curriculum.end"/>
+
 
 <acme:textbox path="endorserRecord.name" code="curriculum.name"/>
 <acme:textbox path="endorserRecord.email" code="curriculum.email"/>
@@ -81,7 +82,8 @@
 				<acme:cancel code="curriculum.cancel" url="curriculum/handyWorker/list.do" />
 			</td>
 		</tr>
-		
+		<input type="submit" name="save"
+		value="<spring:message code="curriculum.save"/>" />
 
 
 </form:form>
