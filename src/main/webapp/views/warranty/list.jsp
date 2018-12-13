@@ -26,6 +26,13 @@
 			</security:authorize>
 		</jstl:if>
 	</display:column>
+		<display:column>
+		<jstl:if test="${warranty.draft }">
+			<security:authorize access="hasRole('ADMIN')">
+				<a href="warranty/administrator/edit.do?[POST:delete]">delete</a>
+			</security:authorize>
+		</jstl:if>
+	</display:column>
 	<display:column property="title" titleKey="warranty.title" />
 	<display:column property="terms" titleKey="warranty.terms" />
 	<display:column property="laws" titleKey="warranty.laws" />
