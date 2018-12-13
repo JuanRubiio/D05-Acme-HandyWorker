@@ -33,7 +33,7 @@
 		<security:authorize access="hasRole('HANDYWORKER')">
 			<display:column property="handyWorker" title="application.handyWorker"/>
 			<display:column>
-				<a href="application/new.do?applicationId=${application.id}">new</a>
+				<a href="application/show.do?applicationId=${application.id}">show</a>
 			</display:column>
 		</security:authorize>
 	

@@ -42,10 +42,15 @@
 		<form:errors ccClass="error" path="title"/>
 		<br />
 		
-		<%-- Form status --%>
+		<form:select path="status">
+			<form:options
+				items="${status}" 
+				itemLabel="status"
+				itemValue="status"/>
+		</form:select>		
 		
-		<%-- Status="Accepted" --%>
-		<jstl:if test="True" status="Accepted">
+		<%-- Form status --%>
+		<jstl:if test="${application.status=='ACCEPTED'}">
 			<form:label path="creditCard">
 				<spring:message code="application.creditCard.holderName" />
 			</form:label>
